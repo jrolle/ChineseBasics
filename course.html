@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Basics - Complete Course (汉语基础)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        nav {
+            background: #333;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav button {
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        nav button:hover, nav button.active {
+            background: #ff0000;
+        }
+        
+        .page {
+            display: none;
+            padding: 2rem;
+            animation: fadeIn 0.3s;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h2 {
+            font-family: 'Comic Sans MS', cursive;
+            color: #ff0000;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ff0000;
+        }
+        
+        h3 {
+            color: #ff0000;
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        h4 {
+            color: #333;
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .content-box {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ff0000;
+            border-radius: 4px;
+        }
+        
+        .important {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        th {
+            background: #ff0000;
+            color: white;
+        }
+        
+        .chinese {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .pinyin {
+            color: #0066cc;
+            font-style: italic;
+        }
+        
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 2px solid #ddd;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .nav-buttons button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .nav-buttons button:hover {
+            background: #cc0000;
+        }
+        
+        .nav-buttons button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CHINESE BASICS</h1>
+            <h1 class="chinese">汉语基础</h1>
+            <p class="subtitle">A Pre-Beginning Chinese Course</p>
+            <p class="note">Course content last updated March, 2012</p>
+        </header>
+
+        <nav>
+            <ul id="navMenu"></ul>
+        </nav>
+
+        <div id="pageContent"></div>
+
+        <footer>
+            <p>&copy; Chinese Basics Course | Created by James Rolle</p>
+        </footer>
+    </div>
+
+    <script>
+        const pages = {
+            home: {
+                title: "Home",
+                content: `
+                    <h2>Welcome to Chinese Basics</h2>
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <p style="font-size: 1.5rem; color: #ff0000;">欢迎 Welcome!</p>
+                    </div>
+                    <p>Chinese Basics is a course intended to help you prepare to learn Chinese. It includes four areas: pinyin, tones, characters, and language structure. While we do not expect you to become an expert in these areas before your formal study of Chinese begins, this course should give you a solid foundation in these areas, and thus a head start in your study.</p>
+                    
+                    <div class="content-box">
+                        <h3>Course Structure</h3>
+                        <p>This course covers four main topics:</p>
+                        <ul>
+                            <li><strong>Pinyin:</strong> The romanization system used to represent Chinese sounds</li>
+                            <li><strong>Tones:</strong> The four tones (plus neutral tone) that are essential to Chinese pronunciation</li>
+                            <li><strong>Characters:</strong> Understanding how Chinese characters work and are structured</li>
+                            <li><strong>Language Structure:</strong> How Chinese grammar and vocabulary differ from English</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Use the navigation menu above to explore each section. You can move through the course sequentially using the Previous/Next buttons at the bottom of each page, or jump to any section using the menu.</p>
+                `
+            },
+            gettingStarted: {
+                title: "Getting Started",
+                content: `
+                    <h2>Getting Started</h2>
+                    <p>Before you can get started on this course, there is some preparatory work to do.</p>
+                    
+                    <div class="content-box">
+                        <h3>Course Expectations and Requirements</h3>
+                        <p>In order to prepare yourself to study Chinese, you will need to get a firm grasp on the four topics covered in this pre-course. As such, it is expected that you will:</p>
+                        <ul>
+                            <li>Follow each of the steps in order</li>
+                            <li>Read, watch, and listen to all of the required material</li>
+                            <li>Selectively look at the optional material</li>
+                            <li>Complete the required assignments</li>
+                            <li>Keep track of your progress</li>
+                            <li>Communicate regularly with the instructor, particularly when you encounter difficulties</li>
+                            <li>Complete the assessments</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Course Time Estimates</h3>
+                    <table>
+                        <tr>
+                            <th>Module</th>
+                            <th>Estimated Time</th>
+                        </tr>
+                        <tr>
+                            <td>What I know about Chinese</td>
+                            <td>30 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Introduction to Chinese</td>
+                            <td>30 minutes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pinyin</strong></td>
+                            <td><strong>9 hours</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tones</strong></td>
+                            <td><strong>8 hours</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Characters</strong></td>
+                            <td><strong>14 hours</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Language Structure</strong></td>
+                            <td><strong>5 hours</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Overall Assessment</td>
+                            <td>2 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Course Feedback</td>
+                            <td>30 minutes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Course Time</strong></td>
+                            <td><strong>40 hours</strong></td>
+                        </tr>
+                    </table>
+                `
+            },
+            introduction: {
+                title: "Introduction to Chinese",
+                content: `
+                    <h2>What IS Chinese, Anyway?</h2>
+                    
+                    <p>China this China that. It's constantly in the news, more every day. And Chinese as well, being studied by more and more people around the world. What's the big deal, and why all the fuss?</p>
+                    
+                    <p>As China's economic might has grown over the past decade, the rest of the world has rushed in; after all, how can we ignore a market with over 1.3 billion people? That's over four times the population of the United States. Along with the siren call to do business has come an increased interest in and necessity to learn the language.</p>
+                    
+                    <p>Chinese is spoken by more people than any other language; in fact by more people than the second two most common languages, English and Spanish. When we say Chinese, we are speaking about all of the Chinese dialects. Mandarin - standard Chinese - is what almost everyone who studies Chinese studies.</p>
+                    
+                    <div class="content-box">
+                        <h3>Key Facts About Chinese</h3>
+                        <ul>
+                            <li>China's growth has brought growing interest in Chinese</li>
+                            <li>Chinese is spoken by more people than any other language</li>
+                            <li>Chinese is very different from English in every way</li>
+                            <li>There are a number of Chinese dialects, but Mandarin is understood by everyone</li>
+                            <li>Chinese is an official language in China, Taiwan, Hong Kong and Singapore</li>
+                            <li>According to the State Department, it takes an English speaker four times as long to reach a given level of proficiency in Chinese as in Spanish</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Dialects</h3>
+                    <p>There are seven major Chinese dialects, regional languages that are as different from Mandarin as Spanish is from English. From a linguist's point of view they could be considered different languages, but because China is one country, we call them dialects. There is a saying in Chinese, 十里不同言 shí lǐ bù tóng yán meaning 'every ten miles a different language.'</p>
+                    
+                    <p>Fortunately, if you speak Mandarin you will be understood throughout China, as it is the official language and is the language spoken in schools.</p>
+                `
+            },
+            goals: {
+                title: "Course Goals",
+                content: `
+                    <h2>Course Goals and Outcomes</h2>
+                    <p>The course looks at four aspects of Chinese language: pinyin, tones, characters, and language structure.</p>
+                    
+                    <div class="content-box">
+                        <h3>Pinyin Goals</h3>
+                        <ul>
+                            <li>Understand the uses of pinyin</li>
+                            <li>Understand the sound system of Chinese</li>
+                            <li>Understand how sounds are represented using pinyin</li>
+                            <li>Understand the standards for writing pinyin</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box">
+                        <h3>Tones Goals</h3>
+                        <ul>
+                            <li>Understand the nature of tones in Chinese</li>
+                            <li>Be able to hear the difference between the tones</li>
+                            <li>Start to hear the different tone combinations</li>
+                            <li>Understand how tones impact speaking</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box">
+                        <h3>Characters Goals</h3>
+                        <ul>
+                            <li>Understand the development of Chinese characters</li>
+                            <li>Understand the types of Chinese characters</li>
+                            <li>Understand the structure of Chinese characters</li>
+                            <li>Understand the components of Chinese characters</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box">
+                        <h3>Language Structure Goals</h3>
+                        <ul>
+                            <li>Understand the basic structure of Chinese sentences</li>
+                            <li>Understand how Chinese differs from western languages</li>
+                        </ul>
+                    </div>
+                `
+            },
+            pinyinIntro: {
+                title: "Pinyin: What and Why",
+                content: `
+                    <h2>Pinyin: What and Why (拼音)</h2>
+                    
+                    <p>Pinyin is the system that China uses to express in written form the sounds of Chinese. (Although many Chinese characters contain a sound element, they are neither universal nor consistent.) Pinyin has a number of important uses.</p>
+                    
+                    <div class="content-box">
+                        <h3>Uses of Pinyin</h3>
+                        <ul>
+                            <li><strong>Learning Tool:</strong> When learning a new character and the accompanying pronunciation, it can be helpful to note down the pinyin</li>
+                            <li><strong>Dictionary Lookup:</strong> One method of looking up words in a dictionary</li>
+                            <li><strong>Standard Transcription:</strong> Adopted by the Library of Congress, American Library Association, and most international institutions</li>
+                            <li><strong>Computer Input:</strong> Used to enter Chinese into computers, smartphones, and other electronic devices</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Pinyin has been accepted by the Library of Congress, The American Library Association, and most international institutions as <em>the</em> transcription system for Mandarin. In 1979 the International Organization for Standardization (ISO) adopted Pinyin as the standard romanization system for Modern Chinese (Mandarin).</p>
+                    
+                    <div class="important">
+                        <h4>Important Note</h4>
+                        <p>Fortunately for speakers of (standard American) English, many of the sounds found in Mandarin are similar to those in English, with a few important exceptions. There is a built-in danger here that English speakers will look at Pinyin and assume that the pronunciation is automatically the same as in English, so please take special note when it is not.</p>
+                    </div>
+                    
+                    <h3>Why Characters Can't Be Replaced by Pinyin</h3>
+                    <p>Many people, including Chinese, have wondered why they retain characters at all, given the challenge and time involved in learning them. There was a movement early in the 20th century to eliminate them and use pinyin instead.</p>
+                    
+                    <p>The problem is that there are over 70 characters that are pronounced 'shi' in Mandarin today. While a story written in characters is quite intelligible, using some 30 different characters, in Pinyin it would be gibberish. This demonstrates why characters are essential - context helps, but the written form provides crucial disambiguation.</p>
+                `
+            },
+            pinyinSounds: {
+                title: "Pinyin Sounds",
+                content: `
+                    <h2>Pinyin Sounds</h2>
+                    
+                    <p>Pinyin uses the Roman alphabet to represent Chinese sounds. Let's start by looking at the consonants (initials) and vowels (finals).</p>
+                    
+                    <h3>Consonants/Initials - 23</h3>
+                    <div class="content-box">
+                        <h4>Group 1: b, p, m, f</h4>
+                        <p><strong>b:</strong> unaspirated "p", like the English "b" but with a bit more pressure</p>
+                        <p><strong>p:</strong> as in English</p>
+                        <p><strong>m:</strong> as in English</p>
+                        <p><strong>f:</strong> as in English</p>
+                        
+                        <h4>Group 2: d, t, n, l</h4>
+                        <p><strong>d:</strong> unaspirated "t", like the English "d" but with a bit more pressure</p>
+                        <p><strong>t:</strong> as in English</p>
+                        <p><strong>n:</strong> as in English</p>
+                        <p><strong>l:</strong> as in English</p>
+                        
+                        <h4>Group 3: g, k, h</h4>
+                        <p><strong>g:</strong> unaspirated "k", like the English "g" but with a bit more pressure</p>
+                        <p><strong>k:</strong> as in English</p>
+                        <p><strong>h:</strong> like the English "h" if followed by "a"; otherwise more roughly/guttural (not unlike the Scottish "ch")</p>
+                        
+                        <h4>Group 4: z, c, s</h4>
+                        <p><strong>z:</strong> like the <em>ds</em> in "reds" but with more pressure (unaspirated counterpart of <em>c</em>)</p>
+                        <p><strong>c:</strong> like "ts" in cats</p>
+                        <p><strong>s:</strong> as in "sun"</p>
+                        
+                        <h4>Group 5: zh, ch, sh, r</h4>
+                        <p><strong>zh:</strong> as in English "jungle", but with more pressure (unaspirated counterpart of <em>ch</em>)</p>
+                        <p><strong>ch:</strong> as in "chant"</p>
+                        <p><strong>sh:</strong> as in "shin"</p>
+                        <p><strong>r:</strong> similar to the English "r" in "rank" with a bit of the initial sound in French "journal" in it</p>
+                        
+                        <h4>Group 6: j, q, x</h4>
+                        <p><strong>j:</strong> like <em>zh</em>, but not as "full", about halfway between <em>zh</em> and <em>z</em>, always followed by a y sound</p>
+                        <p><strong>q:</strong> like <em>ch</em>, but not as "full", about halfway between <em>ch</em> and <em>c</em>, always followed by a y sound</p>
+                        <p><strong>x:</strong> think of hs or sy. Like <em>sh</em>, but not as "full", about halfway between <em>sh</em> and <em>s</em></p>
+                        
+                        <h4>Group 7: w, y</h4>
+                        <p><strong>w:</strong> as in English</p>
+                        <p><strong>y:</strong> as in English; not pronounced at all if followed by <em>i</em></p>
+                    </div>
+                    
+                    <h3>Differences with English</h3>
+                    <p>Note the following letters and syllables are not used in the way they are in English, so can cause confusion:</p>
+                    <ul>
+                        <li>c, x, z</li>
+                        <li>yan, yuan</li>
+                        <li>i (depending on what consonant precedes it: ci, si, zi, chi, shi, zhi are different)</li>
+                        <li>eng, ui, iu</li>
+                    </ul>
+                `
+            },
+            pinyinVowels: {
+                title: "Pinyin Vowels",
+                content: `
+                    <h2>Vowels/Finals - 32</h2>
+                    
+                    <div class="content-box">
+                        <h4>Group 1: a sounds</h4>
+                        <p><strong>a:</strong> as in "father"</p>
+                        <p><strong>ai:</strong> like English "eye" or "Thai" or "my", but a bit lighter</p>
+                        <p><strong>an:</strong> following a 'y' or an 'i' pronounced like the en in "enter"; otherwise after other consonants like on in "upon"</p>
+                        <p><strong>ang:</strong> same as <em>an</em>, but with a 'g' sound at the end (even when following 'i' or 'y')</p>
+                        <p><strong>ao:</strong> approximately as in "cow" but without the ending 'w' sound, or "ouch"; the <em>a</em> is much more audible than the <em>o</em></p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Group 2: e sounds</h4>
+                        <p><strong>e:</strong> a little shorter than the oo in "cook"; when following 'y' or 'i' pronounced as "yet"</p>
+                        <p><strong>ei:</strong> as in "hey" "way" or "weigh"</p>
+                        <p><strong>en:</strong> sounds like an when you say quickly "an elephant" or "chicken"</p>
+                        <p><strong>eng:</strong> like the ung in "lung"</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Group 3: i sounds</h4>
+                        <p><strong>i:</strong> like English "ee", except when preceded by "c", "s", "z"; "zh", "sh", "ch", and "r". Here it is pronounced like "shirt". When preceded by c, s, or z, there is almost no sound of the vowel.</p>
+                        <p><strong>ia:</strong> as ya in "yacht"</p>
+                        <p><strong>ian:</strong> like "yen"</p>
+                        <p><strong>iang:</strong> like "yahng" (not yang)</p>
+                        <p><strong>iao:</strong> "yow" (rhymes with cow), second part of "meow" but as one syllable</p>
+                        <p><strong>ie:</strong> the initial <em>i</em> sounds like English "ee", but is very short; <em>e</em>, like ye in "yet"</p>
+                        <p><strong>in:</strong> "in" though slightly longer (approaching "seen")</p>
+                        <p><strong>ing:</strong> as in "sing"</p>
+                        <p><strong>iong:</strong> a <strong>y</strong> sound followed by the ong in "long"</p>
+                        <p><strong>iu:</strong> pronounced like <strong>yo</strong> (though without the attitude) or "O solo mio" but as one syllable</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Group 4: o sounds</h4>
+                        <p><strong>o:</strong> follows only m, p, b, and f, where it is the same as 'uo' below</p>
+                        <p><strong>ong:</strong> here, <em>o</em> is a sound somewhere in between English "o" as in "song" and English "u" as in "bush"</p>
+                        <p><strong>ou:</strong> oe as in "doe" (without a strong 'w' sound at the end)</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Group 5: u and ü sounds</h4>
+                        <p><strong>u:</strong> like English "oo", except when preceded by <em>y</em>, <em>x</em>, <em>j</em> or <em>q</em>; in this case it is pronounced like <em>ü</em>, or yu, but with a tighter mouth. Pinch your mouth together and say 'ee'.</p>
+                        <p><strong>ü or uu:</strong> as in German "üben" or French "lune." Use 'v' when you type this vowel.</p>
+                        <p><strong>ua:</strong> wa as in "want" or "wash"</p>
+                        <p><strong>uai:</strong> "why"</p>
+                        <p><strong>uan:</strong> wan as in "want"; except when preceded by a j, q, x, or y, when it is pronounced "when"</p>
+                        <p><strong>uang:</strong> "wong" or the Korean "won" plus a g sound</p>
+                        <p><strong>üe:</strong> <em>e</em> is pronounced like <em>ê</em>, the <em>ü</em> is short and light, as in "wet"</p>
+                        <p><strong>ui:</strong> "way"</p>
+                        <p><strong>un:</strong> following j, q, x, or y, pronounced as "win" but with rounded lips</p>
+                        <p><strong>uo:</strong> the <em>u</em> is pronounced shorter and lighter than the <em>o</em>, like the wo in "swore"</p>
+                    </div>
+                `
+            },
+            pinyinConventions: {
+                title: "Pinyin Conventions",
+                content: `
+                    <h2>Pinyin Conventions</h2>
+                    
+                    <p>Is it important just how you write pinyin? Yes and no. If you are writing it for yourself, then as long as you are consistent, it does not really matter. If you're writing to use with other people, then you should follow the conventions in order to avoid any confusion.</p>
+                    
+                    <div class="content-box">
+                        <h3>Tone Marks vs. Numbers</h3>
+                        <p>The normal convention is to use tone marks rather than numbers to indicate tones. With software today, it is relatively easy to produce them. However, anyone will understand if you write numbers instead. Note that the neutral tone does not have a mark or a number, though occasionally you see a 5 written.</p>
+                        
+                        <h4>Example:</h4>
+                        <p><span class="chinese">北京、上海、香港我们都去过。</span><br>
+                        <span class="pinyin">Běijīng, Shànghǎi, Xiānggǎng wǒmen dōu qùguò.</span><br>
+                        Bei3jing1, Shang4hai3, Xiang1gang3 wo3men dou1 qu4guo4.<br>
+                        We have been to Beijing, Shanghai, and Hong Kong.</p>
+                    </div>
+                    
+                    <h3>Tone Mark Placement</h3>
+                    <p>When there is more than one vowel in the pinyin, the tone mark is placed based on the following order (i.e. it goes on the vowel that comes first in this list): <strong>a - o - e - i - u</strong></p>
+                    <p>Examples: hǎo, dài, wěi, xiǎng</p>
+                    <p><strong>Exception:</strong> for ui and iu it goes over the second, so diū and duī</p>
+                    
+                    <h3>Capitalization Rules</h3>
+                    <ul>
+                        <li>The first word in the sentence is capitalized</li>
+                        <li>Proper names, such as people and cities, are capitalized</li>
+                        <li>Other words are not capitalized</li>
+                    </ul>
+                    
+                    <h3>Spacing</h3>
+                    <p>There are no spaces between the pinyin for words (most of which are two characters, but can be three or four). For example, the particle 过 is part of the verb 'to go.'</p>
+                    
+                    <h3>Tone Changes</h3>
+                    <p>When tones change (tone sandhi), only the original tone is reflected, not the change. However, you may see the change in textbooks in order to aid in the proper pronunciation.</p>
+                    <ul>
+                        <li><span class="chinese">你好。</span> Nǐhǎo. and not Níhǎo.</li>
+                        <li><span class="chinese">一块</span> yīkuài and not yíkuài</li>
+                    </ul>
+                `
+            },
+            pinyinOther: {
+                title: "Other Systems",
+                content: `
+                    <h2>Other Romanization Systems</h2>
+                    
+                    <p>Before Pinyin, a number of different systems for romanizing Chinese were in use.</p>
+                    
+                    <div class="content-box">
+                        <h3>Wade-Giles</h3>
+                        <p>Developed by two British scholars at Cambridge in the second half of the 19th century, Wade-Giles was the system most widely used before Pinyin came into use. The existence of this system is why Chinese people often spell their names in English differently than they do in pinyin. For example, many people whose surname is 张 zhāng spell their name Chang.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>Yale</h3>
+                        <p>Developed in the 1940s for use in teaching Chinese at Yale University, Yale was widely used in teaching, but was also eventually supplanted by Pinyin.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>Zhuyin Fuhao (注音符号)</h3>
+                        <p>There is a system widely used in Taiwan called 注音符号 zhùyīn fúhào that does not use roman letters, but instead symbols developed specifically for this purpose. The advantage to using that system for a foreign learner is that there is no confusion with the pronunciation of the letters in English. Even in Taiwan however, many textbooks now list both Zhuyin Fuhao and Pinyin.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>Gwoyeu Romatzyh (国语罗马字)</h3>
+                        <p>There was also a system called Gwoyeu Romatzyh which was developed specifically to address the difficulty foreign learners of Chinese have with tones. Rather than representing the tones with a number or a mark, every syllable has four slightly different ways of writing it, based on the tone.</p>
+                    </div>
+                `
+            },
+            tonesIntro: {
+                title: "Tones: What and Why",
+                content: `
+                    <h2>Tones: What and Why (声调)</h2>
+                    
+                    <p>Unlike any other widely spoken language, Chinese is tonal, meaning that tones accompanying words alter the meaning. English is not a tonal language, but does use intonation. The difference is that while intonation, the way the sound of the voice rises and falls as you speak, can impact the meaning or intention of a sentence, saying a given word differently does not change its meaning in English. Mandarin Chinese has four tones, plus a neutral tone. They are fairly clear, that is they are different enough to be able to hear and say the difference.</p>
+                    
+                    <div class="important">
+                        <h3>Why Are Tones Important?</h3>
+                        <p>Tones are important in Chinese in part because of the limited number of syllables. Chinese has about 400 syllables - different pronunciations - and since characters are all just one syllable, that severely limits the possible ways of saying a word. Tones increase the number considerably.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>Are tones important in Chinese?</h3>
+                        <p><strong>They are more than important; they are ESSENTIAL to understanding and to being understood.</strong></p>
+                        
+                        <h4>Examples of How Tones Change Meaning:</h4>
+                        <p><span class="chinese">世故</span> shìgù causes; reasons | <span class="chinese">世故</span> shìgu sophisticated</p>
+                        <p><span class="chinese">买卖</span> mǎimài business transaction | <span class="chinese">买卖</span> mǎimai small business</p>
+                        <p><span class="chinese">贸易</span> màoyì trade | <span class="chinese">毛衣</span> máoyī sweater</p>
+                        <p><span class="chinese">看书</span> kànshū read | <span class="chinese">砍树</span> kǎnshù chop down a tree</p>
+                    </div>
+                    
+                    <p>In the last example, the dialogue might be:</p>
+                    <p>A: What is s/he doing?<br>
+                    B: S/he is reading.<br>
+                    A: S/he is chopping down a tree?<br>
+                    B: No, s/he is reading!</p>
+                    
+                    <p>The confusion comes entirely from mixing up the tones!</p>
+                `
+            },
+            tonesTones: {
+                title: "The Four Tones",
+                content: `
+                    <h2>The Four Tones</h2>
+                    
+                    <p>Let's start by looking at (actually listening to) what the four tones sound like. Here we hear the four tones in order: gāo (tall); máng (busy); hǎo (good); lèi (tired).</p>
+                    
+                    <h3>Understanding Tones Through English</h3>
+                    <p>One way of looking at Mandarin's four tones for an English speaker is by using various ways of saying the word "man."</p>
+                    
+                    <div class="content-box">
+                        <h4>First tone, a high and even tone:</h4>
+                        <p>Oh, mān, why did you do that?</p>
+                        
+                        <h4>Second tone, a rising tone, as in a question:</h4>
+                        <p>What did you see, mán?</p>
+                        
+                        <h4>Third tone, a flat, dipping tone:</h4>
+                        <p>Come on, mǎn, you can do it!</p>
+                        
+                        <h4>Fourth tone, a falling exclamation:</h4>
+                        <p>Màn, is that hot!</p>
+                    </div>
+                    
+                    <h3>Visual Representation of Tones</h3>
+                    <p>Tones are normally represented against a scale of 1 to 5. This represents your voice's natural range of pitch. Everyone's pitch is different, and so your first tone will not be the same pitch as mine, but the direction will be the same. Third tone is normally represented as rising, but it doesn't actually rise as much as that.</p>
+                    
+                    <h3>Neutral Tone</h3>
+                    <p>The neutral tone sometimes (not always) occurs in the second syllable of a word - particles are normally pronounced with the neutral tone. In pronouncing the neutral tone, your voice simply reverts to its natural level. In each case below, the question particle 吗 ma follows a word, creating a question:</p>
+                    
+                    <p>Note how the voice bounces back to a natural level after the first syllable.</p>
+                    
+                    <h3>Tone Changes (Tone Sandhi)</h3>
+                    <p>In addition to the neutral tone, there are several other special situations in which the basic tone is modified (called tone sandhi or tone change). For syllables involved in a tone change, the actual pronunciation of the tone depends on the tone that precedes or follows it. There are three main tone sandhi rules.</p>
+                    
+                    <div class="content-box">
+                        <h4>Rule 1: Third Tone + Third Tone</h4>
+                        <p>If a third tone is followed by another third tone, it changes to a tone similar to the second tone. For example: hěn + hǎo = hěnhǎo 'very good', but it would be pronounced more like hen2hao3.</p>
+                        
+                        <h4>Rule 2: Third Tone + Other Tones</h4>
+                        <p>If a third tone is followed by a neutral tone, first tone, second tone or fourth tone, it changes to what is called a 'half-third.' It begins to dip, but never rises. For example:</p>
+                        <ul>
+                            <li>hǎo + de = hǎode 'good' + a particle</li>
+                            <li>hěn + gāo = hěngāo 'very tall'</li>
+                            <li>hěn + cháng = hěncháng 'very long'</li>
+                            <li>hěn + kuài = hěnkuài 'very fast'</li>
+                        </ul>
+                        <p>What this means is that the only times a third tone is fully pronounced is either when it is at the end of a term, or when it stands alone.</p>
+                        
+                        <h4>Rule 3: 不 (bù) Changes</h4>
+                        <p>Before a fourth tone, the typically fourth tone bù 'negative marker' changes to a second tone. So bù + kuài = búkuài 'not fast.'</p>
+                        
+                        <h4>Rule 4: 一 (yī) Changes</h4>
+                        <p>The number one 'yī', first tone when alone (as for example when counting, or at the end of a term), also changes. When followed by a fourth tone, it becomes a second tone (just as bù does). When followed by another first tone, a second, or a third tone, it becomes a fourth tone.</p>
+                        <ul>
+                            <li>yī èr sān = One, two, three</li>
+                            <li>sānshíyī = 31</li>
+                            <li>yī + kuài = yíkuài 'one piece'</li>
+                            <li>yī + zhāng = yìzhāng 'one sheet'</li>
+                        </ul>
+                    </div>
+                `
+            },
+            tonesCombinations: {
+                title: "Tone Combinations",
+                content: `
+                    <h2>Tone Combinations</h2>
+                    
+                    <p>Given that most words in Chinese are two characters, that means that when you are speaking, you are normally saying tones in combination. Since there are four tones that can start a word and five that can end it, that means there are 20 two tone combinations.</p>
+                    
+                    <div class="content-box">
+                        <h3>Reference Words</h3>
+                        <p><span class="chinese">高</span> [gāo] tall | <span class="chinese">忙</span> [máng] busy | <span class="chinese">好</span> [hǎo] good | <span class="chinese">累</span> [lèi] tired</p>
+                        <p><span class="chinese">真</span> [zhēn] really | <span class="chinese">蛮</span> [mán] quite | <span class="chinese">很</span> [hěn] very | <span class="chinese">太</span> [tài] too</p>
+                    </div>
+                    
+                    <h3>Tone Combination Examples</h3>
+                    
+                    <div class="content-box">
+                        <h4>1st Tone Combinations</h4>
+                        <p>1-1: <span class="chinese">真高</span> zhēngāo | 1-2: <span class="chinese">真忙</span> zhēnmáng | 1-3: <span class="chinese">真好</span> zhēnhǎo | 1-4: <span class="chinese">真累</span> zhēnlèi</p>
+                        
+                        <h4>2nd Tone Combinations</h4>
+                        <p>2-1: <span class="chinese">蛮高</span> mángāo | 2-2: <span class="chinese">蛮忙</span> mánmáng | 2-3: <span class="chinese">蛮好</span> mánhǎo | 2-4: <span class="chinese">蛮累</span> mánlèi</p>
+                        
+                        <h4>3rd Tone Combinations</h4>
+                        <p>3-1: <span class="chinese">很高</span> hěngāo | 3-2: <span class="chinese">很忙</span> hěnmáng | 3-3: <span class="chinese">很好</span> hěnhǎo* | 3-4: <span class="chinese">很累</span> hěnlèi</p>
+                        <p class="note">*Two third tones in a row sounds like second-third</p>
+                        
+                        <h4>4th Tone Combinations</h4>
+                        <p>4-1: <span class="chinese">太高</span> tàigāo | 4-2: <span class="chinese">太忙</span> tàimáng | 4-3: <span class="chinese">太好</span> tàihǎo | 4-4: <span class="chinese">太累</span> tàilèi</p>
+                        
+                        <h4>Neutral Tone</h4>
+                        <p>Neutral tone can only occur in the second character of a term. Particles are normally neutral tone.</p>
+                        <p><span class="chinese">高吧</span> gāoba | <span class="chinese">忙吧</span> mángba | <span class="chinese">好吧</span> hǎoba | <span class="chinese">累吧</span> lèiba</p>
+                        <p><span class="chinese">高了</span> gāole | <span class="chinese">忙了</span> mángle | <span class="chinese">好了</span> hǎole | <span class="chinese">累了</span> lèile</p>
+                    </div>
+                    
+                    <h3>All Four Tones in One Sentence</h3>
+                    <p><span class="chinese">三十九岁</span> sānshíjiǔsuì (39 years old)</p>
+                    <p><span class="chinese">他是好人。</span> Tā shì hǎo rén (He is a good person.)</p>
+                    <p><span class="chinese">我不太高。</span> Wǒ bú tài gāo. (I'm not too tall.)</p>
+                `
+            },
+            charactersIntro: {
+                title: "Characters: Background",
+                content: `
+                    <h2>Characters: Background (汉字)</h2>
+                    
+                    <h3>How Many Characters Are There?</h3>
+                    <p>The big question on everyone's mind is: How many characters are there, and how many do I have to learn? These are reasonable questions, though the answers are not as straightforward as the questions.</p>
+                    
+                    <div class="content-box">
+                        <h4>The Numbers</h4>
+                        <p><strong>Total characters:</strong> The biggest collection had over 80,000 characters, but many are variants of other characters. Taking away variants, there are around 50-60,000 characters.</p>
+                        
+                        <p><strong>Characters in use today:</strong></p>
+                        <ul>
+                            <li>Big dictionaries: 8,500 to 12,000 characters</li>
+                            <li>High school graduate: around 4,000 characters</li>
+                            <li>Well-educated person: upwards of 6,000 characters</li>
+                            <li>For comprehension: 3,000 will get you over 98% understanding</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="important">
+                        <h4>Important Note About Words</h4>
+                        <p>This is a bit misleading because most Chinese words are made up of two characters, which means that more important than the number of characters you know is the number of combinations, i.e., words. You could know the meaning of two characters and not be able to figure out the meaning of a word made up of them.</p>
+                        
+                        <p><strong>Example:</strong> <span class="chinese">马</span> means 'horse' and <span class="chinese">上</span> means 'on,' so what do you think <span class="chinese">马上</span> means?</p>
+                        <p class="note">Answer: <span class="chinese">马上</span> means "immediately" (because back then, the fastest way to get to a place was on a horse.)</p>
+                    </div>
+                    
+                    <h3>History of Characters</h3>
+                    <p>Chinese characters have been around for approximately 3,500 years. The earliest records we have are characters carved into tortoise shells that were used for divination - telling the future - like who would win tomorrow's battle. We can follow the evolution of the characters by looking at later records.</p>
+                    
+                    <p>The character with the most strokes has 64 strokes - it is four dragons (龍龍龍龍), and meant verbose or long-winded. The character with the least number of strokes is <span class="chinese">一</span> yī meaning 'one.'</p>
+                `
+            },
+            charactersTypes: {
+                title: "Types of Characters",
+                content: `
+                    <h2>Types of Characters</h2>
+                    
+                    <p>There are six types of characters in terms of how they came about.</p>
+                    
+                    <div class="content-box">
+                        <h3>1. Pictographs (象形 xiàngxíng)</h3>
+                        <p>"Depicting the shape" - about 600 characters, pictures of concrete things or abstract things.</p>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>"sun" <span class="chinese">日</span>, "moon" <span class="chinese">月</span>, "evening" <span class="chinese">夕</span></li>
+                            <li>"child" <span class="chinese">子</span>, "wife" <span class="chinese">女</span>, "mother" <span class="chinese">母</span> (wife with breasts)</li>
+                            <li>"tree" <span class="chinese">木</span>, "rain" <span class="chinese">雨</span>, "dog" <span class="chinese">犬</span>, "bird" <span class="chinese">鸟</span></li>
+                        </ul>
+                        <p>These were simply drawings of the object. Note we say "were" because over 3,000 years they have changed considerably, and may no longer look like the object they were originally modeled on.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>2. Ideographs (指事 zhǐshì)</h3>
+                        <p>"Pointing at situations" - marking a character with a dot or a stroke to indicate a part of it.</p>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>"above" <span class="chinese">上</span></li>
+                            <li>the "blade" of a knife <span class="chinese">刃</span></li>
+                            <li>the "root" of a tree <span class="chinese">本</span></li>
+                            <li>the "center" of a target <span class="chinese">中</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>3. Compound Ideographs (会意 huìyì)</h3>
+                        <p>"Combining meanings" - combined image of an abstract sense.</p>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>"dawn" <span class="chinese">旦</span> (the sun <span class="chinese">日</span> over the horizon)</li>
+                            <li>"bright" <span class="chinese">明</span> (sun <span class="chinese">日</span> and moon <span class="chinese">月</span>)</li>
+                            <li>"trusting" <span class="chinese">信</span> (a man <span class="chinese">人</span> speaking <span class="chinese">言</span>)</li>
+                            <li>"burning" <span class="chinese">炎</span> (two fires <span class="chinese">火</span>)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>4. Semantic-Phonetic Characters (形声 xíngshēng)</h3>
+                        <p>"Shape and sound" - a combination of a "classifier," "determinant" or "radical" (sphere of word sense) and a sound. <strong>This is 85% of characters in common use today.</strong></p>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li><span class="chinese">梨</span> lí "pear" from <span class="chinese">木</span> "tree" and the sound <span class="chinese">利</span> lì</li>
+                            <li><span class="chinese">掌</span> zhǎng "controlling" from <span class="chinese">手</span> "hand" and the sound <span class="chinese">尚</span> shàng</li>
+                        </ul>
+                        <p>In each case, the spoken word already existed, so they borrowed a word that was pronounced the same, and added a radical to lend it meaning.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>5. False Borrowing (假借 jiǎjiè)</h3>
+                        <p>Borrowing a character for a word that is pronounced equally but has a totally different meaning.</p>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li><span class="chinese">我</span> (a kind of axe <span class="chinese">戈</span>) for "me"</li>
+                            <li><span class="chinese">来</span> (a kind of grain; modern form <span class="chinese">麦</span>) for "coming"</li>
+                            <li><span class="chinese">足</span> "foot", also meaning "enough"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3>6. Extended Meaning (转注 zhuǎnzhù)</h3>
+                        <p>"Mutually interpretation" - creating a new character from an old one to differ between words with the same meaning but with slightly different pronunciation. A rare type.</p>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>"old" <span class="chinese">老</span> lǎo and "aged" <span class="chinese">考</span> kǎo</li>
+                            <li>"give back" <span class="chinese">返</span> fǎn and "turn back" <span class="chinese">还</span> huán</li>
+                        </ul>
+                    </div>
+                `
+            },
+            charactersRadicals: {
+                title: "Radicals",
+                content: `
+                    <h2>Radicals/Meaning Elements (部首)</h2>
+                    
+                    <p>Radicals are the meaning elements of characters. They are components that give clues to the meaning of a character. Understanding radicals is essential for learning Chinese characters effectively.</p>
+                    
+                    <div class="content-box">
+                        <h3>What Are Radicals?</h3>
+                        <p>Radicals (部首 bùshǒu) are the building blocks of Chinese characters. There are 214 traditional radicals, though the number commonly used is much smaller. Each radical typically carries a general meaning.</p>
+                        
+                        <h4>Common Radicals and Their Meanings:</h4>
+                        <table>
+                            <tr>
+                                <th>Radical</th>
+                                <th>Meaning</th>
+                                <th>Examples</th>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">氵</span></td>
+                                <td>water</td>
+                                <td><span class="chinese">河</span> river, <span class="chinese">海</span> sea, <span class="chinese">洗</span> wash</td>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">木</span></td>
+                                <td>tree/wood</td>
+                                <td><span class="chinese">林</span> forest, <span class="chinese">森</span> thick forest, <span class="chinese">树</span> tree</td>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">人 / 亻</span></td>
+                                <td>person</td>
+                                <td><span class="chinese">你</span> you, <span class="chinese">他</span> he, <span class="chinese">们</span> plural marker</td>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">口</span></td>
+                                <td>mouth</td>
+                                <td><span class="chinese">吃</span> eat, <span class="chinese">喝</span> drink, <span class="chinese">叫</span> call</td>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">女</span></td>
+                                <td>woman</td>
+                                <td><span class="chinese">妈</span> mother, <span class="chinese">姐</span> older sister, <span class="chinese">好</span> good</td>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">手 / 扌</span></td>
+                                <td>hand</td>
+                                <td><span class="chinese">打</span> hit, <span class="chinese">拿</span> take, <span class="chinese">推</span> push</td>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">心 / 忄</span></td>
+                                <td>heart</td>
+                                <td><span class="chinese">想</span> think, <span class="chinese">怕</span> fear, <span class="chinese">情</span> feeling</td>
+                            </tr>
+                            <tr>
+                                <td><span class="chinese">言 / 讠</span></td>
+                                <td>speech</td>
+                                <td><span class="chinese">说</span> speak, <span class="chinese">话</span> words, <span class="chinese">语</span> language</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>Why Learn Radicals?</h3>
+                    <ul>
+                        <li><strong>Understanding meaning:</strong> Radicals give clues to a character's meaning</li>
+                        <li><strong>Dictionary lookup:</strong> Characters are organized by radicals in dictionaries</li>
+                        <li><strong>Memory aid:</strong> Grouping characters by radicals helps memorization</li>
+                        <li><strong>Pattern recognition:</strong> You'll start to see patterns in how characters are constructed</li>
+                    </ul>
+                    
+                    <div class="important">
+                        <h4>Interesting Example: The Periodic Table</h4>
+                        <p>In the Chinese periodic table of elements, there are only four radicals used amongst all the elements:</p>
+                        <ul>
+                            <li>metal <span class="chinese">钅</span></li>
+                            <li>gas <span class="chinese">气</span></li>
+                            <li>water <span class="chinese">氵</span></li>
+                            <li>stone <span class="chinese">石</span></li>
+                        </ul>
+                        <p>The other part of the characters are all phonetic elements (the sound parts).</p>
+                    </div>
+                `
+            },
+            charactersPhonetics: {
+                title: "Phonetics",
+                content: `
+                    <h2>Phonetics/Sound Elements (声旁)</h2>
+                    
+                    <p>Phonetic elements are the parts of characters that give clues to pronunciation. Since 85% of Chinese characters are semantic-phonetic compounds, understanding phonetic elements is crucial for learning characters.</p>
+                    
+                    <div class="content-box">
+                        <h3>How Phonetic Elements Work</h3>
+                        <p>In semantic-phonetic characters, one part (the radical) indicates the meaning, and another part (the phonetic element) suggests the pronunciation. However, due to sound changes over thousands of years, phonetic elements don't always accurately represent the current pronunciation.</p>
+                    </div>
+                    
+                    <h3>Example: Characters with the Same Phonetic Element</h3>
+                    <p>The following characters all share the same phonetic element. Notice that the pronunciation is no longer exactly the same - some are qing and some are jing - and that the tones vary. The other part of each character is the radical (indicated below).</p>
+                    
+                    <table>
+                        <tr>
+                            <th>Character</th>
+                            <th>Pronunciation</th>
+                            <th>Meaning</th>
+                            <th>Radical</th>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">凊</span></td>
+                            <td>qìng</td>
+                            <td>cold, cool</td>
+                            <td>ice</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">情</span></td>
+                            <td>qíng</td>
+                            <td>sentiment</td>
+                            <td>heart</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">清</span></td>
+                            <td>qīng</td>
+                            <td>clear</td>
+                            <td>water</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">请</span></td>
+                            <td>qǐng</td>
+                            <td>request</td>
+                            <td>language</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">晴</span></td>
+                            <td>qíng</td>
+                            <td>fine, clear (weather)</td>
+                            <td>sun</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">鲭</span></td>
+                            <td>qīng</td>
+                            <td>mackerel</td>
+                            <td>fish</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">蜻</span></td>
+                            <td>qīng</td>
+                            <td>dragonfly</td>
+                            <td>insect</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">精</span></td>
+                            <td>jīng</td>
+                            <td>refined</td>
+                            <td>rice</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">静</span></td>
+                            <td>jìng</td>
+                            <td>still, quiet</td>
+                            <td>green/blue</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">睛</span></td>
+                            <td>jīng</td>
+                            <td>eyeball</td>
+                            <td>eye</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="important">
+                        <h4>Important Note</h4>
+                        <p>While phonetic elements provide hints about pronunciation, they are not always reliable due to:</p>
+                        <ul>
+                            <li>Sound changes over thousands of years</li>
+                            <li>Regional pronunciation variations</li>
+                            <li>Tone differences</li>
+                        </ul>
+                        <p>However, they are still very useful learning tools for remembering characters!</p>
+                    </div>
+                `
+            },
+            charactersStructure: {
+                title: "Character Structure",
+                content: `
+                    <h2>Character Structure</h2>
+                    
+                    <p>Chinese characters can be structured in various ways. Understanding these structures helps you write characters correctly and recognize their components.</p>
+                    
+                    <div class="content-box">
+                        <h3>Main Structure Types</h3>
+                        
+                        <h4>1. Left-Right Structure (左右结构)</h4>
+                        <p>The character is divided into left and right parts.</p>
+                        <p><strong>Examples:</strong> <span class="chinese">好</span> (hǎo - good), <span class="chinese">们</span> (men - plural marker), <span class="chinese">你</span> (nǐ - you)</p>
+                        
+                        <h4>2. Top-Bottom Structure (上下结构)</h4>
+                        <p>The character is divided into top and bottom parts.</p>
+                        <p><strong>Examples:</strong> <span class="chinese">字</span> (zì - character), <span class="chinese">想</span> (xiǎng - think), <span class="chinese">茶</span> (chá - tea)</p>
+                        
+                        <h4>3. Enclosure Structure (包围结构)</h4>
+                        <p>One component encloses or partially encloses another.</p>
+                        <p><strong>Examples:</strong> <span class="chinese">国</span> (guó - country), <span class="chinese">园</span> (yuán - garden), <span class="chinese">问</span> (wèn - ask)</p>
+                        
+                        <h4>4. Single Component (独体字)</h4>
+                        <p>The character cannot be divided into separate components.</p>
+                        <p><strong>Examples:</strong> <span class="chinese">人</span> (rén - person), <span class="chinese">日</span> (rì - sun), <span class="chinese">月</span> (yuè - moon)</p>
+                        
+                        <h4>5. Three-Part Structure</h4>
+                        <p>The character has three distinct parts, either left-middle-right or top-middle-bottom.</p>
+                        <p><strong>Examples:</strong> <span class="chinese">谢</span> (xiè - thank), <span class="chinese">湖</span> (hú - lake)</p>
+                    </div>
+                    
+                    <p>Understanding structure helps you:</p>
+                    <ul>
+                        <li>Write characters with proper proportions</li>
+                        <li>Recognize components more easily</li>
+                        <li>Remember characters better</li>
+                        <li>Look up characters in dictionaries</li>
+                    </ul>
+                `
+            },
+            charactersStrokes: {
+                title: "Strokes",
+                content: `
+                    <h2>Strokes (笔画)</h2>
+                    
+                    <p>Chinese characters are made up of strokes; each of the lines you see in a character is a stroke. Consider for a moment why they are called strokes....</p>
+                    
+                    <p>Before pens and pencils, characters were written with brushes, thus the term stroke. There are eight basic strokes, and many combinations.</p>
+                    
+                    <div class="content-box">
+                        <h3>The Eight Basic Strokes</h3>
+                        <p>The character <span class="chinese">永</span> (yǒng - eternal) is traditionally used to demonstrate the eight basic strokes because it contains all of them:</p>
+                        
+                        <ol>
+                            <li><strong>Dot (点 diǎn):</strong> A short diagonal stroke</li>
+                            <li><strong>Horizontal (横 héng):</strong> A straight line from left to right</li>
+                            <li><strong>Vertical (竖 shù):</strong> A straight line from top to bottom</li>
+                            <li><strong>Hook (钩 gōu):</strong> A stroke with a hook at the end</li>
+                            <li><strong>Rising (提 tí):</strong> A diagonal stroke going up from left to right</li>
+                            <li><strong>Left-falling (撇 piě):</strong> A stroke falling to the left</li>
+                            <li><strong>Right-falling (捺 nà):</strong> A stroke falling to the right</li>
+                            <li><strong>Turning (折 zhé):</strong> A stroke that changes direction</li>
+                        </ol>
+                    </div>
+                    
+                    <h3>Why Strokes Matter</h3>
+                    <p>When we write Chinese characters today with a pen, there is no way to vary the width of the strokes, but writing them correctly will have an impact on how your characters look. It is a good idea to keep the strokes in mind as you learn and write. Just as in English, good handwriting is valued highly by the Chinese.</p>
+                    
+                    <div class="important">
+                        <h4>Stroke Count</h4>
+                        <p>The number of strokes in a character is important for:</p>
+                        <ul>
+                            <li>Looking up characters in dictionaries</li>
+                            <li>Understanding character complexity</li>
+                            <li>Writing characters in the correct order</li>
+                        </ul>
+                        <p>The character with the most strokes has 64 strokes, while the simplest character <span class="chinese">一</span> (yī - one) has just one stroke.</p>
+                    </div>
+                `
+            },
+            charactersStrokeOrder: {
+                title: "Stroke Order",
+                content: `
+                    <h2>Stroke Order (笔顺)</h2>
+                    
+                    <p>When we write a Chinese character, there is a prescribed order according to which we write the strokes. There are two reasons for this:</p>
+                    
+                    <ol>
+                        <li>The stroke order grew out of the art of calligraphy. In order to make the characters beautiful and uniform, it makes sense to write them in the same way each time. Stroke order ensures we do so.</li>
+                        <li>Since characters are made of elements that occur over and over again throughout all of the characters, it is much easier to remember how to write them if we write them in the same way each time.</li>
+                    </ol>
+                    
+                    <h3>Basic Shape of Characters</h3>
+                    <p>What is the basic shape of every Chinese character? <strong>Square.</strong></p>
+                    
+                    <div class="content-box">
+                        <h3>The Two Main Rules</h3>
+                        <h4>1. Top to Bottom</h4>
+                        <h4>2. Left to Right</h4>
+                        <p>We start at the top left of the square and work our way right and down and finish at the lower right. This is the goal, but it doesn't absolutely always work out that way.</p>
+                    </div>
+                    
+                    <h3>Detailed Stroke Order Rules</h3>
+                    
+                    <div class="content-box">
+                        <h4>Rule 1: Top to Bottom</h4>
+                        <p>Example: <span class="chinese">三</span> (sān - three)</p>
+                        
+                        <h4>Rule 2: Left to Right</h4>
+                        <p>Examples: <span class="chinese">川</span> (chuān - river), <span class="chinese">八</span> (bā - eight), <span class="chinese">人</span> (rén - person)</p>
+                        
+                        <h4>Rule 3: Horizontal stroke before crossing vertical stroke</h4>
+                        <p>Examples: <span class="chinese">十</span> (shí - ten), <span class="chinese">士</span> (shì - scholar)</p>
+                        
+                        <h4>Rule 4: Bottom horizontal stroke last</h4>
+                        <p>To finish at the lower right.</p>
+                        <p>Examples: <span class="chinese">田</span> (tián - field), <span class="chinese">王</span> (wáng - king)</p>
+                        
+                        <h4>Rule 5: Center stroke before sides</h4>
+                        <p>Examples: <span class="chinese">水</span> (shuǐ - water), <span class="chinese">小</span> (xiǎo - small), <span class="chinese">山</span> (shān - mountain)</p>
+                        
+                        <h4>Rule 6: Left-falling before right-falling</h4>
+                        <p>Left falling stroke (beginning at the upper right and falling left) before right falling stroke (to finish at the lower right).</p>
+                        <p>Examples: <span class="chinese">文</span> (wén - writing), <span class="chinese">人</span> (rén - person), <span class="chinese">八</span> (bā - eight)</p>
+                        
+                        <h4>Rule 7: Outside before inside</h4>
+                        <p>(But see Rule 8)</p>
+                        <p>Examples: <span class="chinese">月</span> (yuè - moon), <span class="chinese">用</span> (yòng - use)</p>
+                        
+                        <h4>Rule 8: Stuff inside the box before sealing the box</h4>
+                        <p>Examples: <span class="chinese">国</span> (guó - country), <span class="chinese">回</span> (huí - return)</p>
+                        
+                        <h4>Rule 9: In some types, inside before outside</h4>
+                        <p>Example: <span class="chinese">这</span> (zhè - this)</p>
+                        
+                        <h4>Rule 10: Minor strokes last</h4>
+                        <p>(But not when it is on top or left, and so comes first)</p>
+                        <p>Examples: <span class="chinese">我</span> (wǒ - I/me), <span class="chinese">戈</span> (gē - dagger-axe)</p>
+                    </div>
+                    
+                    <div class="important">
+                        <h4>Why Stroke Order Matters</h4>
+                        <ul>
+                            <li>Helps you write characters that look balanced and correct</li>
+                            <li>Makes handwriting faster and more natural</li>
+                            <li>Essential for looking up characters by stroke count</li>
+                            <li>Important for learning to write characters from memory</li>
+                            <li>Affects how your handwriting is perceived by native speakers</li>
+                        </ul>
+                    </div>
+                `
+            },
+            charactersTradSimp: {
+                title: "Traditional & Simplified",
+                content: `
+                    <h2>Traditional and Simplified Characters</h2>
+                    
+                    <p>Simplified characters were introduced just after the revolution in 1949; the main aim was to reduce illiteracy by making the characters easier to learn. Simplification is a reduction in the number of strokes in a character. About 2000 characters were simplified.</p>
+                    
+                    <div class="content-box">
+                        <h3>Historical Context</h3>
+                        <p>Given the high literacy rates in Hong Kong and Taiwan - which have always used traditional characters - it is not clear that the form of the characters is the reason for the high illiteracy rates in China at the time; it is more likely the education system. There were no doubt also political reasons for the change, i.e. a break from the past.</p>
+                    </div>
+                    
+                    <h3>Where Each System is Used</h3>
+                    <div class="content-box">
+                        <h4>Simplified Characters Used In:</h4>
+                        <ul>
+                            <li>Mainland China</li>
+                            <li>Singapore</li>
+                            <li>Malaysia (Chinese communities)</li>
+                        </ul>
+                        
+                        <h4>Traditional Characters Used In:</h4>
+                        <ul>
+                            <li>Taiwan</li>
+                            <li>Hong Kong</li>
+                            <li>Macau</li>
+                            <li>Many overseas Chinese communities</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Examples of Simplified vs Traditional</h3>
+                    <table>
+                        <tr>
+                            <th>Traditional</th>
+                            <th>Simplified</th>
+                            <th>Pinyin</th>
+                            <th>Meaning</th>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">學</span></td>
+                            <td><span class="chinese">学</span></td>
+                            <td>xué</td>
+                            <td>study</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">國</span></td>
+                            <td><span class="chinese">国</span></td>
+                            <td>guó</td>
+                            <td>country</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">語</span></td>
+                            <td><span class="chinese">语</span></td>
+                            <td>yǔ</td>
+                            <td>language</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">書</span></td>
+                            <td><span class="chinese">书</span></td>
+                            <td>shū</td>
+                            <td>book</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">長</span></td>
+                            <td><span class="chinese">长</span></td>
+                            <td>cháng/zhǎng</td>
+                            <td>long/grow</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">門</span></td>
+                            <td><span class="chinese">门</span></td>
+                            <td>mén</td>
+                            <td>door</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">開</span></td>
+                            <td><span class="chinese">开</span></td>
+                            <td>kāi</td>
+                            <td>open</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">東</span></td>
+                            <td><span class="chinese">东</span></td>
+                            <td>dōng</td>
+                            <td>east</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">車</span></td>
+                            <td><span class="chinese">车</span></td>
+                            <td>chē</td>
+                            <td>vehicle</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">電</span></td>
+                            <td><span class="chinese">电</span></td>
+                            <td>diàn</td>
+                            <td>electricity</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="important">
+                        <h4>Which Should You Learn?</h4>
+                        <p>For students who are serious about learning Chinese, it is a good idea to be able to read both simplified and traditional characters. Most schools today teach simplified characters because mainland China uses simplified characters. It doesn't really matter which you use to write, as educated people will be able to read either.</p>
+                    </div>
+                    
+                    <p>Note: Of the 300 most frequently seen characters, 88 were simplified. This means that 212 of the most common characters are the same in both systems.</p>
+                `
+            },
+            languageStructureIntro: {
+                title: "How Chinese Works",
+                content: `
+                    <h2>How Chinese Works (语言结构)</h2>
+                    
+                    <p>Part of what makes Chinese unique is the characters; part of what makes it unique is the tones; part of what makes it unique is the structure of the language.</p>
+                    
+                    <h3>Monosyllabic Nature</h3>
+                    <p>It is important to understand that Chinese is monosyllabic, meaning each character - that is each unit of meaning - is one syllable. Among other things, being monosyllabic and character based severely limits the number of possible sounds.</p>
+                    
+                    <div class="content-box">
+                        <h4>Why is this important?</h4>
+                        <p>English has over 15,000 syllables (this number is iffy as there is no precise count); English words are from one (you; me; dog) to ten (antidisestablishmentarianism) syllables long.</p>
+                        
+                        <p>Some Chinese words are one syllable (i.e. one character), most are two, some are three and there is a decent number of four character words (and so strictly speaking Chinese is not truly monosyllabic: it is at the individual character/meaning level, but not at the word level).</p>
+                        
+                        <p>So the use of an alphabet allows for much greater flexibility and variety than the use of characters.</p>
+                    </div>
+                    
+                    <h3>Literacy</h3>
+                    <p>It is also potentially much easier to be illiterate in Chinese than in an alphabetic language. In order to read English, you must learn 26 letters, and then practice recognizing the combinations in words. To read in Chinese you must learn thousands of characters.</p>
+                    
+                    <h3>Word Formation</h3>
+                    <p>Chinese words are typically formed by combining characters:</p>
+                    <ul>
+                        <li>Most words are two characters</li>
+                        <li>Some words are one character</li>
+                        <li>Some words are three or four characters</li>
+                        <li>Knowing individual characters doesn't always tell you the meaning of the compound</li>
+                    </ul>
+                `
+            },
+            languageStructureGrammar: {
+                title: "Chinese Grammar",
+                content: `
+                    <h2>Chinese Grammar</h2>
+                    
+                    <p>Chinese does not have a lot of grammar in the sense that we think of grammar. For example, Chinese has no tense, no masculine/feminine, no singular/plural, and verbs do not change form. Instead, it has lots of words that allow us to indicate these things.</p>
+                    
+                    <div class="content-box">
+                        <h3>Examples of How Grammar Works</h3>
+                        <p>If I say "Yesterday I eat with my friend," it is clear because of the word 'yesterday,' that this took place in the past, even though the verb 'eat' has not changed its form.</p>
+                        
+                        <p>In the same way, if I say, "Please give me two apple," you know that I want more than one, even though the word 'apple' is still singular.</p>
+                    </div>
+                    
+                    <h3>Basic Word Order</h3>
+                    <p>Basic word order in Chinese is the same as in English: <strong>Subject Verb Object</strong></p>
+                    <p>Example: <span class="chinese">我爱你。</span> Wǒ ài nǐ. I love you.</p>
+                    <p class="note">Interestingly, the object can be placed at the beginning of the sentence if you want to emphasize it, and often is.</p>
+                    
+                    <h3>Key Grammar Features</h3>
+                    
+                    <div class="content-box">
+                        <h4>Stative Verbs</h4>
+                        <p>Adjectives - good, bad, tall, busy, tired - can act as verbs, and are referred to as stative verbs (because they describe the state of something).</p>
+                        <p>Example: <span class="chinese">他很高。</span> Tā hěn gāo. He (is) very tall.</p>
+                        <p class="note">Note that Chinese are unlikely to say <span class="chinese">他高。</span> Tā gāo. He (is) tall, because they do not like one character words; they don't sound good.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Particles</h4>
+                        <p>Particles are placed after verbs to indicate a change in aspect, such as ongoing, completed (either earlier or in the future), etc.</p>
+                        <p>Particles are also used at the ends of sentences to change meaning, such as the question particle <span class="chinese">吗</span> ma and the suggestion particle <span class="chinese">吧</span> ba.</p>
+                        <p class="note">Note that particles have the neutral tone, thus no tone mark on the pinyin.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Measure Words (Classifiers)</h4>
+                        <p>Chinese makes extensive use of measure words, also known as classifiers. Almost every noun requires a measure word if it is quantified - 4 plates; 10 dresses - or specified - this purse; that book.</p>
+                        
+                        <p>Note that English uses these as well: a herd of cattle; a flock of geese; a slice of bread; however we do not say 'a piece of pencil.' In Chinese, every noun requires one.</p>
+                        
+                        <p>Chinese also uses measure words for quantities such as a cup (of tea), a bottle (of soda), a bag (of oranges).</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Fixed Sentence Structures</h4>
+                        <p>Chinese makes extensive use of fixed sentence structures, sets of terms used in specific places in a sentence.</p>
+                    </div>
+                `
+            },
+            languageStructureVocab: {
+                title: "Chinese Vocabulary",
+                content: `
+                    <h2>Vocabulary in Chinese</h2>
+                    
+                    <h3>Word Structure</h3>
+                    <p>All of the vocabulary examples are typically two characters. Most Chinese words consist of two characters. In many cases, each character has some meaning, and it lends that meaning to the word. However, many characters cannot be used alone.</p>
+                    
+                    <div class="content-box">
+                        <h4>Example</h4>
+                        <p><span class="chinese">朋友</span> means friend. Each character means friend, but neither is ever used alone.</p>
+                        
+                        <p>Some relatively common words, in fact, contain characters that are used nowhere else. <span class="chinese">葡萄</span> pútao 'grape' and <span class="chinese">尴尬</span> gāngà 'embarrassed' both contain characters that, in modern Chinese, occur nowhere else.</p>
+                    </div>
+                    
+                    <h3>Word Formation</h3>
+                    <p>Because Chinese prefer two character words, sometimes characters are added on to make a one character word two characters. That is the case with <span class="chinese">子</span> zi, which is appended onto many nouns but has no meaning in those cases.</p>
+                    
+                    <p>Examples include:</p>
+                    <ul>
+                        <li><span class="chinese">桌子</span> zhuōzi 'table'</li>
+                        <li><span class="chinese">狮子</span> shīzi 'lion'</li>
+                    </ul>
+                    
+                    <h3>Contractions</h3>
+                    <p>Many two character words are actually contractions of four character terms:</p>
+                    
+                    <table>
+                        <tr>
+                            <th>Short Form</th>
+                            <th>Full Form</th>
+                            <th>Meaning</th>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">电邮</span> diànyóu</td>
+                            <td><span class="chinese">电子邮件</span> diànzǐyóujiàn</td>
+                            <td>email</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">北大</span> běidà</td>
+                            <td><span class="chinese">北京大学</span> běijīngdàxué</td>
+                            <td>Beijing University</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">超市</span> chāoshì</td>
+                            <td><span class="chinese">超级市场</span> chāojíshìchǎng</td>
+                            <td>supermarket</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">科技</span> kējì</td>
+                            <td><span class="chinese">科学技术</span> kēxuéjìshù</td>
+                            <td>science and technology</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Multiple Pronunciation Characters</h3>
+                    <p>Another feature of Chinese characters and Chinese vocabulary is the existence of <span class="chinese">多音字</span> duōyīnzì multiple pronunciation characters. Many characters have more than one pronunciation, and as the pronunciation changes, so does the meaning. These characters make up from five to 10 percent of commonly used characters.</p>
+                    
+                    <div class="content-box">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li><span class="chinese">好</span> hǎo good vs. <span class="chinese">好</span> hào to like</li>
+                            <li><span class="chinese">乐</span> yuè music vs. <span class="chinese">乐</span> lè happy</li>
+                            <li><span class="chinese">中</span> zhōng middle vs. <span class="chinese">中</span> zhòng hit (a target)</li>
+                            <li><span class="chinese">还</span> hái still vs. <span class="chinese">还</span> huán return</li>
+                            <li><span class="chinese">都</span> dōu all, both vs. <span class="chinese">都</span> dū capital (city)</li>
+                        </ul>
+                        <p class="note">The meaning is almost always clear from the context, so they do not create any particular difficulty.</p>
+                    </div>
+                    
+                    <h3>New Words</h3>
+                    <p>New vocabulary is normally created by putting characters together that describe the meaning of the term. For example many relatively new words begin with <span class="chinese">电</span> diàn electricity:</p>
+                    
+                    <ul>
+                        <li><span class="chinese">电话</span> diànhuà electric speech = telephone</li>
+                        <li><span class="chinese">电车</span> diànchē electric car = tram</li>
+                        <li><span class="chinese">电脑</span> diànnǎo electric brain = computer</li>
+                        <li><span class="chinese">手机</span> shǒujī hand machine = cell phone</li>
+                    </ul>
+                    
+                    <h3>Loan Words</h3>
+                    <p>Chinese does not easily accept loan words, simply because there is no accurate way to reproduce the sound of a foreign word, because there is no alphabet. They do exist, however:</p>
+                    
+                    <table>
+                        <tr>
+                            <th>Chinese</th>
+                            <th>Pinyin</th>
+                            <th>English</th>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">咖啡</span></td>
+                            <td>kāfēi</td>
+                            <td>coffee</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">卡</span></td>
+                            <td>kǎ</td>
+                            <td>card</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">酷</span></td>
+                            <td>kù</td>
+                            <td>cool</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">沙拉</span></td>
+                            <td>shālā</td>
+                            <td>salad</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">派对</span></td>
+                            <td>pàiduì</td>
+                            <td>party</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">汉堡包</span></td>
+                            <td>hànbǎobāo</td>
+                            <td>hamburger</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">沙发</span></td>
+                            <td>shāfā</td>
+                            <td>sofa</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">可乐</span></td>
+                            <td>kělè</td>
+                            <td>cola</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">巴士</span></td>
+                            <td>bāshì</td>
+                            <td>bus</td>
+                        </tr>
+                        <tr>
+                            <td><span class="chinese">吉他</span></td>
+                            <td>jítā</td>
+                            <td>guitar</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Chinese Words in English</h3>
+                    <p>A few Chinese words have made their way into English as well:</p>
+                    <ul>
+                        <li><strong>Long time no see</strong> - a direct translation of <span class="chinese">好久不见</span> hǎojiǔbùjiàn</li>
+                        <li><strong>Chow</strong> (food) - probably comes from <span class="chinese">炒</span> chǎo (to stir fry)</li>
+                        <li><strong>Kowtow</strong> (to bow down) - comes from <span class="chinese">磕头</span> kētóu or <span class="chinese">叩头</span> kòutóu</li>
+                        <li><strong>Tea</strong> - comes from a dialect's pronunciation of <span class="chinese">茶</span> chá</li>
+                    </ul>
+                `
+            },
+            acknowledgements: {
+                title: "Acknowledgements",
+                content: `
+                    <h2>Acknowledgements</h2>
+                    
+                    <p>This course was built by James Rolle, using content mostly written and put together by him. A lot of wonderful content available on a multitude of websites is linked to and recommended, and I thank the owners of those sites for making their information available to all for free, as this is the true nature of education.</p>
+                    
+                    <p>I would also like to thank Cheng Lan 程岚 for her help and suggestions with some of the content, and Michelle Schirahagerman, MSU MAET CEP820 instructor, for her guidance in creating an online course.</p>
+                    
+                    <h3>Copyright Notice</h3>
+                    <p>All of the content herein, with the exception of content embedded from certain other sites and not created by me, is made available under a Creative Commons license:</p>
+                    
+                    <div class="content-box">
+                        <p><strong>Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</strong></p>
+                        <p>This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</p>
+                    </div>
+                    
+                    <h3>Privacy Policy</h3>
+                    <p>We respect your privacy. We do not collect personally identifiable information about you unless you voluntarily provide it, such as when you provide email contact information, send feedback, or respond to a survey.</p>
+                    
+                    <p>We do <em>not</em> make your contact information or any other personally identifiable information available to anyone outside the course or its service providers (who use the information <em>only</em> for authorized purposes) unless we are legally required to do so.</p>
+                `
+            }
+        };
+
+        // Navigation state
+        let currentPage = 'home';
+        const pageOrder = [
+            'home', 'gettingStarted', 'introduction', 'goals',
+            'pinyinIntro', 'pinyinSounds', 'pinyinVowels', 'pinyinConventions', 'pinyinOther',
+            'tonesIntro', 'tonesTones', 'tonesCombinations',
+            'charactersIntro', 'charactersTypes', 'charactersRadicals', 'charactersPhonetics',
+            'charactersStructure', 'charactersStrokes', 'charactersStrokeOrder', 'charactersTradSimp',
+            'languageStructureIntro', 'languageStructureGrammar', 'languageStructureVocab',
+            'acknowledgements'
+        ];
+
+        // Initialize navigation
+        function initNav() {
+            const navMenu = document.getElementById('navMenu');
+            const menuItems = [
+                { id: 'home', label: 'Home' },
+                { id: 'gettingStarted', label: 'Getting Started' },
+                { id: 'introduction', label: 'Introduction' },
+                { id: 'goals', label: 'Goals' },
+                { id: 'pinyinIntro', label: 'Pinyin' },
+                { id: 'tonesIntro', label: 'Tones' },
+                { id: 'charactersIntro', label: 'Characters' },
+                { id: 'languageStructureIntro', label: 'Language Structure' },
+                { id: 'acknowledgements', label: 'About' }
+            ];
+
+            menuItems.forEach(item => {
+                const li = document.createElement('li');
+                const button = document.createElement('button');
+                button.textContent = item.label;
+                button.onclick = () => showPage(item.id);
+                button.id = `nav-${item.id}`;
+                li.appendChild(button);
+                navMenu.appendChild(li);
+            });
+        }
+
+        // Show page
+        function showPage(pageId) {
+            currentPage = pageId;
+            const page = pages[pageId];
+            
+            // Update nav active state
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const navBtn = document.getElementById(`nav-${pageId}`);
+            if (navBtn) navBtn.classList.add('active');
+
+            // Get prev/next pages
+            const currentIndex = pageOrder.indexOf(pageId);
+            const prevPage = currentIndex > 0 ? pageOrder[currentIndex - 1] : null;
+            const nextPage = currentIndex < pageOrder.length - 1 ? pageOrder[currentIndex + 1] : null;
+
+            // Build navigation buttons
+            let navButtons = '<div class="nav-buttons">';
+            if (prevPage) {
+                navButtons += `<button onclick="showPage('${prevPage}')">← Previous: ${pages[prevPage].title}</button>`;
+            } else {
+                navButtons += '<button disabled>← Previous</button>';
+            }
+            if (nextPage) {
+                navButtons += `<button onclick="showPage('${nextPage}')">Next: ${pages[nextPage].title} →</button>`;
+            } else {
+                navButtons += '<button disabled>Next →</button>';
+            }
+            navButtons += '</div>';
+
+            // Render page
+            const content = `
+                <div class="page active">
+                    ${page.content}
+                    ${navButtons}
+                </div>
+            `;
+            
+            document.getElementById('pageContent').innerHTML = content;
+            window.scrollTo(0, 0);
+        }
+
+        // Make showPage global
+        window.showPage = showPage;
+
+        // Initialize on load
+        initNav();
+        showPage('home');
+    </script>
+</body>
+</html>

@@ -1611,34 +1611,102 @@
                     <p>We do <em>not</em> make your contact information or any other personally identifiable information available to anyone outside the course or its service providers (who use the information <em>only</em> for authorized purposes) unless we are legally required to do so.</p>
                 `
             }
+            siteIndex: {
+    title: "Site Index",
+    content: `
+        <h2>Site Index</h2>
+        <p>Quick links to all pages in this course:</p>
+        
+        <div class="content-box">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+                <li><a href="#" onclick="showPage('gettingStarted'); return false;">Getting Started</a></li>
+                <li><a href="#" onclick="showPage('introduction'); return false;">Introduction</a></li>
+                <li><a href="#" onclick="showPage('goals'); return false;">Goals</a></li>
+            </ul>
+        </div>
+        
+        <div class="content-box">
+            <h3>Pinyin</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('pinyinIntro'); return false;">Pinyin Introduction</a></li>
+                <li><a href="#" onclick="showPage('pinyinSounds'); return false;">Pinyin Sounds</a></li>
+                <li><a href="#" onclick="showPage('pinyinVowels'); return false;">Pinyin Vowels</a></li>
+                <li><a href="#" onclick="showPage('pinyinConventions'); return false;">Pinyin Conventions</a></li>
+                <li><a href="#" onclick="showPage('pinyinOther'); return false;">Other Pinyin Topics</a></li>
+            </ul>
+        </div>
+        
+        <div class="content-box">
+            <h3>Tones</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('tonesIntro'); return false;">Tones Introduction</a></li>
+                <li><a href="#" onclick="showPage('tonesTones'); return false;">The Four Tones</a></li>
+                <li><a href="#" onclick="showPage('tonesCombinations'); return false;">Tone Combinations</a></li>
+            </ul>
+        </div>
+        
+        <div class="content-box">
+            <h3>Characters</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('charactersIntro'); return false;">Characters Introduction</a></li>
+                <li><a href="#" onclick="showPage('charactersTypes'); return false;">Types of Characters</a></li>
+                <li><a href="#" onclick="showPage('charactersRadicals'); return false;">Radicals</a></li>
+                <li><a href="#" onclick="showPage('charactersPhonetics'); return false;">Phonetics</a></li>
+                <li><a href="#" onclick="showPage('charactersStructure'); return false;">Character Structure</a></li>
+                <li><a href="#" onclick="showPage('charactersStrokes'); return false;">Strokes</a></li>
+                <li><a href="#" onclick="showPage('charactersStrokeOrder'); return false;">Stroke Order</a></li>
+                <li><a href="#" onclick="showPage('charactersTradSimp'); return false;">Traditional vs Simplified</a></li>
+            </ul>
+        </div>
+        
+        <div class="content-box">
+            <h3>Language Structure</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('languageStructureIntro'); return false;">Language Structure Introduction</a></li>
+                <li><a href="#" onclick="showPage('languageStructureGrammar'); return false;">Grammar</a></li>
+                <li><a href="#" onclick="showPage('languageStructureVocab'); return false;">Vocabulary</a></li>
+            </ul>
+        </div>
+        
+        <div class="content-box">
+            <h3>About</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('acknowledgements'); return false;">Acknowledgements</a></li>
+            </ul>
+        </div>
+    `
+}
         };
 
         // Navigation state
-        let currentPage = 'home';
-        const pageOrder = [
-            'home', 'gettingStarted', 'introduction', 'goals',
-            'pinyinIntro', 'pinyinSounds', 'pinyinVowels', 'pinyinConventions', 'pinyinOther',
-            'tonesIntro', 'tonesTones', 'tonesCombinations',
-            'charactersIntro', 'charactersTypes', 'charactersRadicals', 'charactersPhonetics',
-            'charactersStructure', 'charactersStrokes', 'charactersStrokeOrder', 'charactersTradSimp',
-            'languageStructureIntro', 'languageStructureGrammar', 'languageStructureVocab',
-            'acknowledgements'
-        ];
+let currentPage = 'home';
+const pageOrder = [
+    'home', 'gettingStarted', 'introduction', 'goals',
+    'pinyinIntro', 'pinyinSounds', 'pinyinVowels', 'pinyinConventions', 'pinyinOther',
+    'tonesIntro', 'tonesTones', 'tonesCombinations',
+    'charactersIntro', 'charactersTypes', 'charactersRadicals', 'charactersPhonetics',
+    'charactersStructure', 'charactersStrokes', 'charactersStrokeOrder', 'charactersTradSimp',
+    'languageStructureIntro', 'languageStructureGrammar', 'languageStructureVocab',
+    'acknowledgements', 'siteIndex'
+];
 
-        // Initialize navigation
-        function initNav() {
-            const navMenu = document.getElementById('navMenu');
-            const menuItems = [
-                { id: 'home', label: 'Home' },
-                { id: 'gettingStarted', label: 'Getting Started' },
-                { id: 'introduction', label: 'Introduction' },
-                { id: 'goals', label: 'Goals' },
-                { id: 'pinyinIntro', label: 'Pinyin' },
-                { id: 'tonesIntro', label: 'Tones' },
-                { id: 'charactersIntro', label: 'Characters' },
-                { id: 'languageStructureIntro', label: 'Language Structure' },
-                { id: 'acknowledgements', label: 'About' }
-            ];
+// Initialize navigation
+function initNav() {
+    const navMenu = document.getElementById('navMenu');
+    const menuItems = [
+        { id: 'home', label: 'Home' },
+        { id: 'gettingStarted', label: 'Getting Started' },
+        { id: 'introduction', label: 'Introduction' },
+        { id: 'goals', label: 'Goals' },
+        { id: 'pinyinIntro', label: 'Pinyin' },
+        { id: 'tonesIntro', label: 'Tones' },
+        { id: 'charactersIntro', label: 'Characters' },
+        { id: 'languageStructureIntro', label: 'Language Structure' },
+        { id: 'acknowledgements', label: 'About' },
+        { id: 'siteIndex', label: 'Site Index' }
+    ];
 
             menuItems.forEach(item => {
                 const li = document.createElement('li');
